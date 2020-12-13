@@ -1,0 +1,16 @@
+
+
+For Backend Run : 
+
+            1.open 2 terminals in api directory
+            2.use command "npm run watch" on first terminal
+            3.use command "npm run start" on another terminal
+
+
+For Fronted Run:
+            1.open terminal in front-end directory
+            2.use command "ng serve --open"
+
+URLS: 
+            1.  /dashboard
+            2.  /add-new-product

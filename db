@@ -1,0 +1,12 @@
+create database test_assignment;
+
+use test_assignment;
+
+create table products(
+    id int(10) not null primary key auto_increment, 
+    name varchar(50) not null, 
+    category varchar(30) not null, 
+    price float(10,2) not null, 
+    quantity int(7) not null, 
+    status boolean
+);
