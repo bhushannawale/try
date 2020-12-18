@@ -1,0 +1,102 @@
+
+
+<html lang="en">
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport"
+             content="width=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+            crossorigin="anonymous">
+       <title>Divyata</title>
+    
+    </head>
+    <style>
+    tr {
+        text-align: center;
+        font: bolder;
+        font-size: 25px;
+    }
+    a {
+        color: black;
+        font: bolder;
+    }
+    th {
+        color:black;
+        font: bolder;
+        text-align: center;
+    }
+    div.footer {
+        display: inline-block;
+        margin-left: 150px;
+    }
+    .table {
+        margin-top: 50px;
+        color:black;
+        font: bolder;
+        font-size: 25px;
+    }
+    
+    body {
+        background-image: url("https://i2-prod.chroniclelive.co.uk/incoming/article16711899.ece/ALTERNATES/s1200/1_Shopping-cart-view-in-Supermarket-aisle-with-product-shelves-abstract-blur-defocused-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 4%;
+    }
+    
+    .button {
+        font-size: 30px;
+         color: black;
+    }
+    
+    </style>
+    <body>
+    
+        <h2 style="color: purple;"> <center>WELCOME TO THE SHOP!!</center></h2>
+              
+            <br>
+            <br>
+        <div class="footer">
+            <a href="{%url 'create_products'%}"><button class="btn btn-primary"> Add New product</button></a>
+        </div>
+        <div class="footer">
+            <form method="POST" action="/view">
+                {% csrf_token %}
+                <input type="text" name="sb" placeholder="Enter to be searched">
+                <a href="{%url 'view_product' %}"><input class="btn btn-primary" type="submit" value="Search"></a>
+            </form>
+        </div>
+        <div class="footer">
+            <a href="/myCart"><button class="btn btn-primary">View Cart</button></a>
+        </div>
+        <div class="footer">
+            <a href="{%url 'myOrders'%}"><button class="btn btn-primary">My Orders</button></a>
+        </div>
+        <div class="footer">
+            <a href="/2"><button class="btn btn-primary"> Log Out </button></a>
+        </div>
+
+
+        <table class="table table-secondary">
+            <tr>
+           <th> <h3>Products</h3></th>
+           <th><h3><center>Price</center></h3></th>
+           <th> <h3>Description</h3></th>
+           <th><h3><center>Summary</center></h3></th>
+           <th><h3>Total Items : {{count}}</h3></th>
+        </tr>
+           {% for product in products %}
+            <tr class="table-secondary table-hover">
+               <td class="striker"> <a href="{%url 'update_product' product.id %}">{{product.title}}</a> </td>
+               <td class="striker"><center> <a href="{%url 'update_product' product.id %}">{{product.price}}</a></center> </td>
+               <td class="striker"> <a href="{%url 'update_product' product.id %}">{{product.description}}</a></td>
+               <td class="striker"><center> <a href="{%url 'update_product' product.id %}">{{product.summary}}</a></center> </td>
+               <td><center><a href="{%url 'update_product' product.id %}"><button class="btn btn-danger">Update</button></a></center></td>
+               <td><center><a href="{%url 'delete_product' product.id %}"><button class="btn btn-danger">Delete</button></a></center></td>
+               <td><center><a href="{%url 'addToCart' product.id %}"><button class="btn btn-success">Add to Cart</button></a></center></td>
+          </tr>
+          {% endfor %}
+        </table>
+    </body>
+    </html>
+    

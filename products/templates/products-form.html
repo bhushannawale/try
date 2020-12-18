@@ -1,0 +1,51 @@
+   
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<style>
+
+.card {
+   padding-top: 40px;
+   padding-bottom: 20px;
+   font: bolder;
+   padding-left: 10px;
+   word-spacing: 400px;
+   border: none;
+   background-repeat: no-repeat;
+   background-size: cover;
+   margin-left: 25%;
+   width: 35%;
+   margin-top: 10%;
+   background-image: url("https://ak5.picdn.net/shutterstock/videos/175465/thumb/1.jpg");
+}
+button {
+   width: 150px;
+}
+body {
+   background-image: url("https://us.123rf.com/450wm/vinsalow/vinsalow1705/vinsalow170500007/78162961-grunge-texture-black-background-hd-photo.jpg?ver=6");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+</style>
+<body>       
+<div class="container">
+        
+        <div class="card">
+         <h4 class="card-header text-center">Details</h4>
+     <form method="POST" class="form-group">
+         {% csrf_token %}
+         {{form}}
+      
+      <button type="submit" class="btn btn-success" style="margin-left:25%;">Save</button>
+   </form>
+   </div>
+   </div>
+   
+   
+</body>
+</html>
+

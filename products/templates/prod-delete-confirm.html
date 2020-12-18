@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Divyata </title>
+</head>
+<style>
+body {
+    background-image: url("https://i2-prod.chroniclelive.co.uk/incoming/article16711899.ece/ALTERNATES/s1200/1_Shopping-cart-view-in-Supermarket-aisle-with-product-shelves-abstract-blur-defocused-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+     margin-top: 50px;
+     font-size: 25px;
+    
+
+}
+h2 {text-align: center;}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+
+ 
+</style>
+<body>
+    <form method="post">
+    {% csrf_token %}
+     
+    <h2>Are you sure you want to remove {{ product.title }} ?</h2>
+    <div class="center">
+    <button type="submit" class="btn btn-lg btn-warning">confirm</button>
+
+      </div>
+    </form>
+</body>
+</html>

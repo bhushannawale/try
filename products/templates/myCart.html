@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+   <title>Divyata</title>
+
+</head>
+<style>
+tr {
+    text-align: center;
+}
+a {
+    color: black;
+}
+th {
+    color:black;
+    font: bolder;
+    text-align: center;
+}
+div.footer {
+    display: inline-block;
+    margin-left: 150px;
+}
+.table {
+    margin-top: 50px;
+    font-size: 25px;
+}
+body {
+    background-image: url("https://i2-prod.chroniclelive.co.uk/incoming/article16711899.ece/ALTERNATES/s1200/1_Shopping-cart-view-in-Supermarket-aisle-with-product-shelves-abstract-blur-defocused-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 4%;
+}
+
+</style>
+
+<body>
+
+    <h2 style="color: purple;"> <center>MY CART</center></h2><br><br>
+          <table class="table table-secondary">
+          <tr class="table-secondary table-hover">
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+            <th>TOTAL-PRICE</th>
+            <th><center>REMOVE FROM CART</center></th>
+            <th><center>PROCEED TO BUY</center></th>
+            
+          </tr>
+           {% for item in items %}
+            <tr class="table-secondary table-hover">
+               <td class="striker"> {{item.product.title}} </td>
+               <td class="striker"> {{item.product.description}} </td>
+               <td class="striker p"> {{item.product.price}} </td>
+               <td class="striker u"> {{item.unit}} </td>
+               <td class="striker total-price"> {{ item.total }} </td>
+               <td><center><a href="{%url 'removeFromCart' item.product.id %}"><button class="btn btn-danger"> Remove </button></a></center></td>
+               <td><center><a href="{%url 'checkout' item.product.id %}"><button class="btn btn-success"> Buy </button></a></center></td>
+               
+          </tr>
+          {% endfor %}
+        </table>
+</body>
+
+</html>
